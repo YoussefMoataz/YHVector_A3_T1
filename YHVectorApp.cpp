@@ -1,4 +1,4 @@
-#include "YHVectorHeader.h"
+#include "YHVectorFunctions.cpp"
 
 int main() {
 

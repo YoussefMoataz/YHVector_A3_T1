@@ -18,13 +18,9 @@ private:
 
 public:
 // Constructors and Big 4
-    YHVector() {
+    YHVector();
 
-    }
-
-    YHVector(int size) {
-
-    } // Initialize by specific capacity
+    YHVector(int size);// Initialize by specific capacity
 // No content is added, size = 0
 // Assign a default size value
     YHVector(T *, int n) {
