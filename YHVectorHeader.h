@@ -20,17 +20,19 @@ public:
 // Constructors and Big 4
     YHVector();
 
-    YHVector(int size); // Initialize by specific capacity
+    YHVector(int); // Initialize by specific capacity
 // No content is added, size = 0
 // Assign a default size value
-    YHVector(T *, int n); // Initialize by n items from array
+    YHVector(T *, int); // Initialize by n items from array
     YHVector(const YHVector &); // Initialize with a copy
-//    ~YHVector(); // Delete allocated memory
+    ~YHVector(); // Delete allocated memory
     YHVector &operator=(const YHVector<T> &); // Copy assignment
     YHVector &operator=(const YHVector<T> &&); // Move assignment
+
 // Access operations
     T &operator[](int); // Access item by reference
 // Throw an exception if out of range
+
 // Modifying operations
     int push_back(T); // Add item to end of vec & return # of items
 // Increase capacity of needed
@@ -43,21 +45,25 @@ public:
     void clear(); // Delete all vector content
     void insert(T::iterator, T); // Insert item at iterator
 // Throw exception if invalid
+
 // Iterators // Supports *, + and ++ operations at least
 // Can use: typedef T* iterator
 // Or u can use std::iterator so you can
 // apply STL algorithms on XYVector
     T::iterator begin(); // Return an iterator (T*)
     T::iterator end(); // Return an iterator (T*)
+
 // Comparison operations
     bool operator==(const YHVector<T> &); // Return true if ==
     bool operator<(const YHVector<T> &); // Compares item by item
 // Return true if first different item in this is < in other
+
 // Capacity operations
     int size(); // Return current size of vec
     int capacity(); // Return size of current allocated array
     int resize(); // Relocate to bigger space
     bool empty(); // Return true if size is 0
+
 // Friends
     friend ostream &operator<<(ostream &out, YHVector<T>);
 };
