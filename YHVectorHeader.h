@@ -71,7 +71,7 @@ public:
     bool empty(); // Return true if size is 0
 
 // Friends
-    // friend ostream &operator<<(ostream &out, YHVector<T>);
+    friend ostream &operator<<(ostream &out, YHVector<T>);
 };
 
 #endif //YHVECTOR_A3_T1_YHVECTORHEADER_H
