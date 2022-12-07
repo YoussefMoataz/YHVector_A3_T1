@@ -9,6 +9,7 @@
 #include <vector>
 #include <iterator>
 
+
 using namespace std;
 
 // Classes, Functions declaration
@@ -50,8 +51,10 @@ public:
 // Can use: typedef T* iterator
 // Or u can use std::iterator so you can
 // apply STL algorithms on XYVector
-    T::iterator begin(); // Return an iterator (T*)
-    T::iterator end(); // Return an iterator (T*)
+    typedef T *iterator;
+
+    YHVector<T>::iterator begin(); // Return an iterator (T*)
+    YHVector<T>::iterator end(); // Return an iterator (T*)
 
 // Comparison operations
     bool operator==(const YHVector<T> &); // Return true if ==

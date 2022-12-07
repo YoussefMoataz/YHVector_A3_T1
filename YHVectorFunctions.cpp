@@ -90,13 +90,13 @@ void YHVector<T>::insert(T::iterator iter, T item) {
 
 // Hassan
 template<typename T>
-T::iterator YHVector<T>::begin() {
+YHVector<T>::iterator YHVector<T>::begin() {
 
 }
 
 // Hassan
 template<typename T>
-T::iterator YHVector<T>::end() {
+YHVector<T>::iterator YHVector<T>::end() {
 
 }
 
