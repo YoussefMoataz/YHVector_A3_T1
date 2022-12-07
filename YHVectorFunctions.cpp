@@ -116,11 +116,15 @@ bool YHVector<T>::operator<(const YHVector<T> &other) {
 template<typename T>
 int YHVector<T>::size() {
 
+    return Size;
+
 }
 
 // Youssef
 template<typename T>
 int YHVector<T>::capacity() {
+
+    return Capacity;
 
 }
 
@@ -134,11 +138,25 @@ int YHVector<T>::resize() {
 template<typename T>
 bool YHVector<T>::empty() {
 
+    return Size == 0;
+
 }
 
 // Youssef
 template<typename T>
 ostream &operator<<(ostream &out, YHVector<T> yhVector) {
+
+//    for (auto i = yhVector.begin(); i < yhVector.end(); ++i) {
+//
+//        out << *i;
+//
+//    }
+
+    for (auto i = 0; i < yhVector.Size; ++i) {
+
+        out << yhVector[i];
+
+    }
 
 }
 
