@@ -17,6 +17,9 @@ YHVector<T>::YHVector(int n) {
     Capacity = n;
     Size = 0;
 
+    begin();
+    end();
+
 }
 
 // Hassan
@@ -30,6 +33,9 @@ YHVector<T>::YHVector(T *Array, int n) {
     for (int i = 0; i < n; i++) {
         Data[i] = Array[i];
     }
+
+    begin();
+    end();
 
 }
 

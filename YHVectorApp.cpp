@@ -28,6 +28,16 @@ int main() {
 
     printDashes();
 
+    // working with STL
+    int a2[5] = {45, 22, 35, 9, 12};
+    YHVector<int> v2(a2, 5);
+
+    sort(v2.begin(), v2.end() + 1);
+
+    cout << v2;
+
+    printDashes();
+
     return 0;
 }
 
