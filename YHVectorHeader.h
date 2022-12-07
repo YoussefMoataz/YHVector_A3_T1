@@ -16,7 +16,8 @@ using namespace std;
 template<typename T>
 class YHVector {
 private:
-
+    T* Data;
+    typedef T *iterator;
     unsigned long int Size, Capacity;
 
 public:
@@ -40,20 +41,20 @@ public:
     int push_back(T); // Add item to end of vec & return # of items
 // Increase capacity of needed
     T pop_back(); // Remove and return last element in vec
-    void erase(T::iterator); // Remove item at iterator
+    void erase(iterator); // Remove item at iterator
 // Throw exception if invalid iter
-    void erase(T::iterator, T::iterator); // Remove items between.
+    void erase(iterator,iterator); // Remove items between.
 // iterator 1 <= iterator 2 otherwise do nothing
 // Throw exception if any iterator outside range
     void clear(); // Delete all vector content
-    void insert(T::iterator, T); // Insert item at iterator
+    void insert(iterator, T); // Insert item at iterator
 // Throw exception if invalid
 
 // Iterators // Supports *, + and ++ operations at least
 // Can use: typedef T* iterator
 // Or u can use std::iterator so you can
 // apply STL algorithms on XYVector
-    typedef T *iterator;
+
 
     YHVector<T>::iterator begin(); // Return an iterator (T*)
     YHVector<T>::iterator end(); // Return an iterator (T*)
@@ -70,7 +71,7 @@ public:
     bool empty(); // Return true if size is 0
 
 // Friends
-    friend ostream &operator<<(ostream &out, YHVector<T>);
+    // friend ostream &operator<<(ostream &out, YHVector<T>);
 };
 
 #endif //YHVECTOR_A3_T1_YHVECTORHEADER_H
