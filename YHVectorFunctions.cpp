@@ -67,7 +67,9 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
 // Hassan
 template<typename T>
 T &YHVector<T>::operator[](int index) {
+
     return *(Data + index);
+
 }
 
 // Youssef
@@ -97,8 +99,10 @@ void YHVector<T>::erase(iterator iter1, iterator iter2) {
 // Youssef
 template<typename T>
 void YHVector<T>::clear() {
+
     delete[] Data;
     Size = 0;
+
 }
 
 // Youssef
@@ -110,13 +114,16 @@ void YHVector<T>::insert(iterator iter, T item) {
 // Hassan
 template<typename T>
 T *YHVector<T>::begin() {
+
     Begin = Data;
     return Begin;
+
 }
 
 // Hassan
 template<typename T>
 YHVector<T>::iterator YHVector<T>::end() {
+
     End = Begin + Size - 1;
     return End;
 
