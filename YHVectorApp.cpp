@@ -6,11 +6,28 @@
 
 int main() {
 
-    YHVector<string> vv(4);
-    YHVector<string> vv2 = YHVector<string>();
-    int a1[5]={1,2,3,4,5};
-    YHVector<int> vv3(a1,5);
-    cout<<vv3[0]<<endl;
+//    YHVector<string> vv(4);
+//    YHVector<string> vv2 = YHVector<string>();
+
+    int a1[5] = {123, 22, 35, 41, 5445};
+    YHVector<int> vv3(a1, 5);
+//    cout<<vv3[2]<<endl;
+
+//    for (int i = 0; i < vv3.size(); ++i) {
+//        cout<<vv3[i]<<endl;
+//    }
+
+    cout << *(vv3.begin())<< endl;
+    cout << *(vv3.end())<< endl;
+    cout << (vv3.begin())<< endl;
+    cout << (vv3.end())<< endl;
+
+    printDashes();
+
+    cout << vv3;
+
+    printDashes();
+
     return 0;
 }
 
