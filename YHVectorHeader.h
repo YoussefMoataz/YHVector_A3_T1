@@ -17,6 +17,8 @@ template<typename T>
 class YHVector {
 private:
 
+    unsigned long int Size, Capacity;
+
 public:
 // Constructors and Big 4
     YHVector();
