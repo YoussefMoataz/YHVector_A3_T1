@@ -38,6 +38,19 @@ int main() {
 
     printDashes();
 
+    int a3[5] = {123, 22, 35, 41, 5445};
+    YHVector<int> v3(a3, 5);
+
+    cout << v3.size() << endl;
+    cout << v3.capacity() << endl;
+    cout << v3 << endl;
+
+    v3.push_back(642);
+
+    cout << v3.size() << endl;
+    cout << v3.capacity() << endl;
+    cout << v3 << endl;
+
     return 0;
 }
 
