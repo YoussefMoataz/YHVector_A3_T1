@@ -103,6 +103,18 @@ int main() {
 
     printDashes();
 
+    int a6[5] = {123, 22, 35, 41, 5445};
+    YHVector<int> v6(a6, 5);
+
+    *v6.begin() = *(v6.begin() + 3);
+
+    cout << *(v6.begin())<< endl;
+    cout << *(v6.end() - 1)<< endl;
+    cout << (v6.begin())<< endl;
+    cout << (v6.end() - 1)<< endl;
+
+    printDashes();
+
     return 0;
 }
 
