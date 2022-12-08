@@ -80,7 +80,7 @@ T &YHVector<T>::operator[](int index) {
 
     } else{
 
-        throw std::out_of_range("Out of range !");
+        throw out_of_range("Out of range !");
 
     }
 
