@@ -18,13 +18,13 @@ int main() {
 //    }
 
     cout << *(vv3.begin())<< endl;
-    cout << *(vv3.end())<< endl;
+    cout << *(vv3.end() - 1)<< endl;
     cout << (vv3.begin())<< endl;
-    cout << (vv3.end())<< endl;
+    cout << (vv3.end() - 1)<< endl;
 
     printDashes();
 
-    cout << vv3;
+    cout << vv3 << endl;
 
     printDashes();
 
@@ -32,9 +32,9 @@ int main() {
     int a2[5] = {45, 22, 35, 9, 12};
     YHVector<int> v2(a2, 5);
 
-    sort(v2.begin(), v2.end() + 1);
+    sort(v2.begin(), v2.end());
 
-    cout << v2;
+    cout << v2 << endl;
 
     printDashes();
 
@@ -50,6 +50,21 @@ int main() {
     cout << v3.size() << endl;
     cout << v3.capacity() << endl;
     cout << v3 << endl;
+
+    printDashes();
+
+    string a4[5] = {"first", "second", "third", "fourth"};
+    YHVector<string> v4(a4, 4);
+
+    cout << v4.size() << endl;
+    cout << v4.capacity() << endl;
+    cout << v4 << endl;
+
+    v4.push_back("finall");
+
+    cout << v4.size() << endl;
+    cout << v4.capacity() << endl;
+    cout << v4 << endl;
 
     return 0;
 }

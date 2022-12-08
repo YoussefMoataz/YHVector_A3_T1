@@ -171,7 +171,7 @@ T *YHVector<T>::begin() {
 template<typename T>
 YHVector<T>::iterator YHVector<T>::end() {
 
-    End = Begin + Size - 1;
+    End = Begin + Size;
     return End;
 
 }
@@ -223,11 +223,13 @@ template<typename T2>
 ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
 
-    for (auto i = yhVector.begin(); i <= yhVector.end(); ++i) {
+    for (auto i = yhVector.begin(); i < yhVector.end() - 1; ++i) {
 
         out << *i << ", ";
 
     }
+
+    out << *(yhVector.end() - 1);
 
     return out;
 
@@ -235,7 +237,7 @@ ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
 void printDashes(){
 
-    cout << endl << string(20, '-') << endl;
+    cout << string(20, '-') << endl;
 
 }
 
