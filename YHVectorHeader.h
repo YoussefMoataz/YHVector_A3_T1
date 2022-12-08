@@ -14,7 +14,7 @@ template<typename T>
 class YHVector {
 private:
     T *Data;
-    int Size = 0, Capacity = 0;
+    int Size = 0, Capacity = 1;
     typedef T *iterator;
     iterator Begin, End;
 

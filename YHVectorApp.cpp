@@ -145,6 +145,24 @@ int main() {
     cout<<v10.size()<<endl;
     cout<<v10.capacity()<<endl;
 
+    printDashes();
+
+    int a11[5] = {265, 8202, 3545, 401, 545};
+    YHVector<int> v11(a11, 5);
+    YHVector<int> v12;
+
+    for (auto i = v11.begin(); i < v11.end(); ++i) {
+
+        v12.push_back(*i);
+
+    }
+
+    cout << v12 << endl;
+    cout << v12.size() << endl;
+
+    printDashes();
+
+
     return 0;
 }
 

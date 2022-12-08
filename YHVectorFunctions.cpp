@@ -6,7 +6,9 @@
 
 // Hassan
 template<typename T>
-YHVector<T>::YHVector() {
+YHVector<T>::YHVector(){
+
+    Data = new T[1];
 
 }
 
@@ -16,6 +18,8 @@ YHVector<T>::YHVector(int n) {
 
     Capacity = n;
     Size = 0;
+
+    Data = new T[n];
 
     begin();
     end();
