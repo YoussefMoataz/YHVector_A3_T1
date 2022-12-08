@@ -74,7 +74,15 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
 template<typename T>
 T &YHVector<T>::operator[](int index) {
 
-    return *(Data + index);
+    if (index < Size && index >= 0) {
+
+        return *(Data + index);
+
+    } else{
+
+        throw std::out_of_range("Out of range !");
+
+    }
 
 }
 

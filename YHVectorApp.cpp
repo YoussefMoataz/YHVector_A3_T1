@@ -6,12 +6,19 @@
 
 int main() {
 
-//    YHVector<string> vv(4);
-//    YHVector<string> vv2 = YHVector<string>();
-
     int a1[5] = {123, 22, 35, 41, 5445};
     YHVector<int> vv3(a1, 5);
-//    cout<<vv3[2]<<endl;
+
+    try {
+
+        cout<<vv3[2]<<endl;
+        cout<<vv3[5]<<endl;
+
+    } catch (out_of_range &e) {
+
+        cout << e.what() << endl;
+
+    }
 
 //    for (int i = 0; i < vv3.size(); ++i) {
 //        cout<<vv3[i]<<endl;
