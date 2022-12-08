@@ -51,6 +51,12 @@ int main() {
     cout << v3.capacity() << endl;
     cout << v3 << endl;
 
+    cout << v3.empty() << endl; // 0
+
+    v3.clear();
+
+    cout << v3.empty() << endl; // 1
+
     printDashes();
 
     string a4[5] = {"first", "second", "third", "fourth"};
