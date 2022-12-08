@@ -7,12 +7,12 @@
 int main() {
 
     int a1[5] = {123, 22, 35, 41, 5445};
-    YHVector<int> vv3(a1, 5);
+    YHVector<int> v1(a1, 5);
 
     try {
 
-        cout<<vv3[2]<<endl;
-        cout<<vv3[5]<<endl;
+        cout<<v1[2]<<endl;
+        cout<<v1[5]<<endl;
 
     } catch (out_of_range &e) {
 
@@ -24,14 +24,14 @@ int main() {
 //        cout<<vv3[i]<<endl;
 //    }
 
-    cout << *(vv3.begin())<< endl;
-    cout << *(vv3.end() - 1)<< endl;
-    cout << (vv3.begin())<< endl;
-    cout << (vv3.end() - 1)<< endl;
+    cout << *(v1.begin())<< endl;
+    cout << *(v1.end() - 1)<< endl;
+    cout << (v1.begin())<< endl;
+    cout << (v1.end() - 1)<< endl;
 
     printDashes();
 
-    cout << vv3 << endl;
+    cout << v1 << endl;
 
     printDashes();
 
