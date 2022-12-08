@@ -354,13 +354,39 @@ T *YHVector<T>::end() {
 // Hassan
 template<typename T>
 bool YHVector<T>::operator==(const YHVector<T> &other) {
-
+    if(this->Size==other.Size){
+        if(this->Capacity==other.Capacity){
+            for(int i=0;i<other.Size;i++){
+                if(this->Data[i]!=other.Data[i]){
+                    return false;
+                }
+            }
+            return true;
+        }
+        return false;
+    }
+    return false;
 }
 
 // Hassan
 template<typename T>
 bool YHVector<T>::operator<(const YHVector<T> &other) {
+    int SmallestSize;
+    if(this->Size<1||other.Size<1){
+        return false;
+    }
 
+    if(this->Size<other.Size){
+        SmallestSize=this->Size;
+    }
+    else{SmallestSize=other.Size;}
+
+    for(int i=0;i<SmallestSize;i++){
+        if(this->Data[i]<other.Data[i]){
+            return true;
+        }
+    }
+    return false;
 }
 
 // Youssef

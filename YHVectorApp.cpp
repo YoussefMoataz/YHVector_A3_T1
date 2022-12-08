@@ -194,7 +194,6 @@ int main() {
 
     string a15[5] = {"first", "second", "third", "fourth", "fifth"};
     YHVector<string> v15(a15, 5);
-
     cout << v15.begin() << endl;
     cout << v15.end() << endl;
 
@@ -209,6 +208,19 @@ int main() {
 
     printDashes();
 
+    //test for == operator and < operator
+    int a16[5]={1,1,3,4,5};
+    YHVector <int> v16(a16,5);
+    int a17[5]={1,2,3,4,5};
+    YHVector <int> v17(a17,5);
+    if(v16==v17){
+        cout<<"v16=v17"<<endl;
+    }
+    else{cout<<"v16!=v17"<<endl;}
+    if(v16<v17){
+        cout<<"a16<17"<<endl;
+    }    
+    else{cout<<"a16!<a17"<<endl;}
 
     return 0;
 }
