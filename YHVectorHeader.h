@@ -5,9 +5,7 @@
 #ifndef YHVECTOR_A3_T1_YHVECTORHEADER_H
 #define YHVECTOR_A3_T1_YHVECTORHEADER_H
 
-#include <iostream>
-#include <vector>
-#include <algorithm>
+#include <bits/stdc++.h>
 
 using namespace std;
 
