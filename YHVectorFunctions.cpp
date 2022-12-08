@@ -96,7 +96,7 @@ int YHVector<T>::push_back(T item) {
 template<typename T>
 T YHVector<T>::pop_back() {
 
-    if (Size > 0) {
+    if (Size > 1) {
 
         T *temp = new T[Size - 1];
 
@@ -122,6 +122,14 @@ T YHVector<T>::pop_back() {
 
         return *(end() - 1);
     }
+
+    T lastItem = Data[0];
+
+    delete [] Data;
+
+    Size = 0;
+
+    return lastItem;
 
 }
 

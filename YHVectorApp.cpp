@@ -96,10 +96,12 @@ int main() {
     v5.pop_back();
     v5.pop_back();
     v5.pop_back();
-//    v5.pop_back(); // last element to be fixed
+    v5.pop_back();
 
     cout << v5 << endl;
     cout << v5.size() << endl;
+
+    printDashes();
 
     return 0;
 }
