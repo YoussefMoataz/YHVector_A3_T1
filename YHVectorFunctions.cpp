@@ -6,7 +6,7 @@
 
 // Hassan
 template<typename T>
-YHVector<T>::YHVector(){
+YHVector<T>::YHVector() {
 
     Data = new T[1];
 
@@ -186,11 +186,81 @@ T YHVector<T>::pop_back() {
 template<typename T>
 void YHVector<T>::erase(iterator iter) {
 
+    if (iter >= begin() && iter < end()) {
+
+        int sz = Size;
+
+        T *temp = new T[Size];
+
+        int j = 0;
+
+        for (int i = 0; i < Size; ++i) {
+
+            if (&Data[i] == iter) {
+                sz--;
+                continue;
+            } else {
+                temp[j] = Data[i];
+                j++;
+            }
+
+        }
+
+        delete[] Data;
+
+        Data = new T[Size - 1];
+        for (int i = 0; i < Size - 1; ++i) {
+
+            Data[i] = temp[i];
+
+        }
+
+        Size = sz;
+
+        delete[] temp;
+
+    }
+
 }
 
 // Youssef
 template<typename T>
 void YHVector<T>::erase(iterator iter1, iterator iter2) {
+
+    if (iter1 >= begin() && iter2 < end()) {
+
+        int sz = Size;
+
+        T *temp = new T[Size];
+
+        int j = 0;
+
+        for (int i = 0; i < Size; ++i) {
+
+            if (&Data[i] >= iter1 && &Data[i] <= iter2) {
+                sz--;
+                continue;
+            } else {
+                temp[j] = Data[i];
+                j++;
+            }
+
+        }
+
+        delete[] Data;
+
+        Data = new T[Size - 1];
+        for (int i = 0; i < Size - 1; ++i) {
+
+            Data[i] = temp[i];
+
+        }
+
+        Size = sz;
+
+        delete[] temp;
+
+    }
 
 }
 

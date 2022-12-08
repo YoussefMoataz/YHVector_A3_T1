@@ -162,6 +162,33 @@ int main() {
 
     printDashes();
 
+    string a13[5] = {"first", "second", "third", "fourth", "fifth"};
+    YHVector<string> v13(a13, 5);
+
+    cout << v13.begin() << endl;
+    cout << v13.end() << endl;
+
+
+    cout << v13 << endl;
+
+    v13.erase(v13.begin() + 3);
+
+    cout << v13 << endl;
+
+    printDashes();
+
+    string a14[8] = {"zero", "first", "second", "third", "fourth", "fifth", "sixth", "seventh"};
+    YHVector<string> v14(a14, 8);
+
+    cout << v14.begin() << endl;
+    cout << v14.end() << endl;
+
+
+    cout << v14 << endl;
+
+    v14.erase(v14.begin() + 2, v14.begin() + 5);
+
+    cout << v14 << endl;
 
     return 0;
 }
