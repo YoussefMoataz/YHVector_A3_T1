@@ -96,6 +96,33 @@ int YHVector<T>::push_back(T item) {
 template<typename T>
 T YHVector<T>::pop_back() {
 
+    if (Size > 0) {
+
+        T *temp = new T[Size - 1];
+
+        for (int i = 0; i < Size - 1; ++i) {
+
+            temp[i] = Data[i];
+
+        }
+
+        delete[] Data;
+
+        Data = new T[Capacity];
+
+        for (int i = 0; i < Size - 1; ++i) {
+
+            Data[i] = temp[i];
+
+        }
+
+        delete[] temp;
+
+        Size--;
+
+        return *(end() - 1);
+    }
+
 }
 
 // Youssef
@@ -136,7 +163,7 @@ T *YHVector<T>::begin() {
 
 // Hassan
 template<typename T>
-YHVector<T>::iterator YHVector<T>::end() {
+T* YHVector<T>::end() {
 
     End = Begin + Size;
     return End;
@@ -175,11 +202,11 @@ int YHVector<T>::capacity() {
 template<typename T>
 int YHVector<T>::resize() {
 
-    if(Size >= Capacity){
+    if (Size >= Capacity) {
 
         Capacity *= 2;
 
-        T* temp = new T[Size];
+        T *temp = new T[Size];
 
         for (int i = 0; i < Size; ++i) {
 
@@ -187,7 +214,7 @@ int YHVector<T>::resize() {
 
         }
 
-        delete [] Data;
+        delete[] Data;
 
         Data = new T[Capacity];
 
@@ -197,7 +224,7 @@ int YHVector<T>::resize() {
 
         }
 
-        delete [] temp;
+        delete[] temp;
 
         return 1;
     }
@@ -234,7 +261,7 @@ ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
 }
 
-void printDashes(){
+void printDashes() {
 
     cout << string(20, '-') << endl;
 

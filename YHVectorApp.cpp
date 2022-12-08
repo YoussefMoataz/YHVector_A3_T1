@@ -59,7 +59,7 @@ int main() {
 
     printDashes();
 
-    string a4[5] = {"first", "second", "third", "fourth"};
+    string a4[4] = {"first", "second", "third", "fourth"};
     YHVector<string> v4(a4, 4);
 
     cout << v4.size() << endl;
@@ -86,6 +86,20 @@ int main() {
     cout << v4 << endl;
 
     printDashes();
+
+    string a5[4] = {"first", "second", "third", "fourth"};
+    YHVector<string> v5(a5, 4);
+
+    cout << v5 << endl;
+    cout << v5.size() << endl;
+
+    v5.pop_back();
+    v5.pop_back();
+    v5.pop_back();
+//    v5.pop_back(); // last element to be fixed
+
+    cout << v5 << endl;
+    cout << v5.size() << endl;
 
     return 0;
 }
