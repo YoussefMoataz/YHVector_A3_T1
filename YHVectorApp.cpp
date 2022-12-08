@@ -207,6 +207,9 @@ int main() {
     cout << v15 << endl;
     cout << v15.size() << endl;
 
+    printDashes();
+
+
     return 0;
 }
 
