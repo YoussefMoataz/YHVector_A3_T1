@@ -42,7 +42,16 @@ YHVector<T>::YHVector(T *Array, int n) {
 // Hassan
 template<typename T>
 YHVector<T>::YHVector(const YHVector<T> &other) {
+    Capacity = other.Capacity;
+    Size = other.Size;
+    Data = new T[Size];
 
+    for (int i = 0; i < Size; i++) {
+        Data[i] = other.Data[i];
+    }
+
+    begin();
+    end();
 }
 
 // Hassan
@@ -61,13 +70,35 @@ YHVector<T>::~YHVector() {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
+    this->Capacity=other.cpacity;
+    this->Size=other.Size;
+    this->Data=new T[this->size]
+    for (int i = 0; i < this->Size; i++) {
+        this->Data[i] = other.Data[i];
+    }
+
+    begin();
+    end();
 
 }
 
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
+    this->Capacity=other.cpacity;
+    this->Size=other.Size;
+    this->Data=new T[this->size]
+    for (int i = 0; i < this->Size; i++) {
+        this->Data[i] = other.Data[i];
+    }
 
+    begin();
+    end();
+    other->Capacity=0;
+    other->Size=0;
+    delete[] other->Data;
+    other->Begin=nullptr;
+    other->End=nullptr;
 }
 
 // Hassan

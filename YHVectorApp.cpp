@@ -121,7 +121,10 @@ int main() {
     cout << (v6.end() - 1)<< endl;
 
     printDashes();
-
+    int a7[5] = {123, 22, 35, 41, 5445};
+    YHVector<int> v7(a7, 5);
+    YHVector<int> v8(v7);
+    cout<<v8<<endl;
     return 0;
 }
 
