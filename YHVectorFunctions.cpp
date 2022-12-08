@@ -277,6 +277,60 @@ void YHVector<T>::clear() {
 template<typename T>
 void YHVector<T>::insert(iterator iter, T item) {
 
+    if (iter >= begin() && iter <= end()) {
+
+        T *temp = new T[Size + 1];
+
+        int i = 0;
+        for (; i < Size; ++i) {
+
+            if (&Data[i] == iter) {
+                break;
+            }
+
+        }
+
+        int counter = 0;
+        while (counter < i){
+
+            temp[counter] = Data[counter];
+
+            counter++;
+
+        }
+
+        counter = Size;
+
+        while (counter > i){
+
+            temp[counter] = Data[counter - 1];
+
+            counter--;
+
+        }
+
+        temp[i] = item;
+
+        delete[] Data;
+
+        Size++;
+
+        if (Size >= Capacity) {
+
+            Capacity *= 2;
+
+        }
+
+        Data = new T[Size];
+        for (int k = 0; k < Size; ++k) {
+
+            Data[k] = temp[k];
+
+        }
+
+        delete[] temp;
+    }
+
 }
 
 // Hassan

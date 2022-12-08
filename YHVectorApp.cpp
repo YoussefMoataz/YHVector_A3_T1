@@ -190,6 +190,23 @@ int main() {
 
     cout << v14 << endl;
 
+    printDashes();
+
+    string a15[5] = {"first", "second", "third", "fourth", "fifth"};
+    YHVector<string> v15(a15, 5);
+
+    cout << v15.begin() << endl;
+    cout << v15.end() << endl;
+
+
+    cout << v15 << endl;
+    cout << v15.size() << endl;
+
+    v15.insert(v15.begin() + 4, "The new item");
+
+    cout << v15 << endl;
+    cout << v15.size() << endl;
+
     return 0;
 }
 
