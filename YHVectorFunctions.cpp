@@ -218,14 +218,17 @@ bool YHVector<T>::empty() {
 template<typename T2>
 ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
+    if (yhVector.size() > 0) {
 
-    for (auto i = yhVector.begin(); i < yhVector.end() - 1; ++i) {
+        for (auto i = yhVector.begin(); i < yhVector.end() - 1; ++i) {
 
-        out << *i << ", ";
+            out << *i << ", ";
+
+        }
+
+        out << *(yhVector.end() - 1);
 
     }
-
-    out << *(yhVector.end() - 1);
 
     return out;
 

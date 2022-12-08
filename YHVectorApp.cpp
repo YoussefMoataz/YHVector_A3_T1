@@ -73,6 +73,12 @@ int main() {
     cout << v4.capacity() << endl;
     cout << v4 << endl;
 
+    v4.clear();
+
+    cout << v4.size() << endl;
+    cout << v4.capacity() << endl;
+    cout << v4 << endl;
+
     printDashes();
 
     return 0;
