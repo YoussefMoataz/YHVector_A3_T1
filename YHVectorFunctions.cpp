@@ -291,7 +291,7 @@ void YHVector<T>::insert(iterator iter, T item) {
         }
 
         int counter = 0;
-        while (counter < i){
+        while (counter < i) {
 
             temp[counter] = Data[counter];
 
@@ -301,7 +301,7 @@ void YHVector<T>::insert(iterator iter, T item) {
 
         counter = Size;
 
-        while (counter > i){
+        while (counter > i) {
 
             temp[counter] = Data[counter - 1];
 
