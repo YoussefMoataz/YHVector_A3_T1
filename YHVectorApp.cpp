@@ -121,10 +121,30 @@ int main() {
     cout << (v6.end() - 1)<< endl;
 
     printDashes();
+
     int a7[5] = {123, 22, 35, 41, 5445};
     YHVector<int> v7(a7, 5);
     YHVector<int> v8(v7);
+
     cout<<v8<<endl;
+    cout<<v8.size()<<endl;
+    cout<<v8.capacity()<<endl;
+
+    printDashes();
+
+    int a9[5] = {123, 22, 35, 41, 5445};
+    YHVector<int> v9(a9, 5);
+    YHVector<int> v10 = v9;
+
+    cout<<v10<<endl;
+
+    v10.pop_back();
+    v10.pop_back();
+
+    cout<<v10<<endl;
+    cout<<v10.size()<<endl;
+    cout<<v10.capacity()<<endl;
+
     return 0;
 }
 

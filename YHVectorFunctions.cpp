@@ -42,6 +42,7 @@ YHVector<T>::YHVector(T *Array, int n) {
 // Hassan
 template<typename T>
 YHVector<T>::YHVector(const YHVector<T> &other) {
+
     Capacity = other.Capacity;
     Size = other.Size;
     Data = new T[Size];
@@ -52,6 +53,7 @@ YHVector<T>::YHVector(const YHVector<T> &other) {
 
     begin();
     end();
+
 }
 
 // Hassan
@@ -70,9 +72,10 @@ YHVector<T>::~YHVector() {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
-    this->Capacity=other.cpacity;
-    this->Size=other.Size;
-    this->Data=new T[this->size]
+
+    this->Capacity = other.cpacity;
+    this->Size = other.Size;
+    this->Data = new T[this->size];
     for (int i = 0; i < this->Size; i++) {
         this->Data[i] = other.Data[i];
     }
@@ -85,20 +88,23 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
-    this->Capacity=other.cpacity;
-    this->Size=other.Size;
-    this->Data=new T[this->size]
+
+    this->Capacity = other.cpacity;
+    this->Size = other.Size;
+    this->Data = new T[this->size];
     for (int i = 0; i < this->Size; i++) {
         this->Data[i] = other.Data[i];
     }
 
     begin();
     end();
-    other->Capacity=0;
-    other->Size=0;
+
+    other->Capacity = 0;
+    other->Size = 0;
     delete[] other->Data;
-    other->Begin=nullptr;
-    other->End=nullptr;
+    other->Begin = nullptr;
+    other->End = nullptr;
+
 }
 
 // Hassan
@@ -109,7 +115,7 @@ T &YHVector<T>::operator[](int index) {
 
         return *(Data + index);
 
-    } else{
+    } else {
 
         throw out_of_range("Out of range !");
 
@@ -164,7 +170,7 @@ T YHVector<T>::pop_back() {
 
     T lastItem = Data[0];
 
-    delete [] Data;
+    delete[] Data;
 
     Size = 0;
 
@@ -210,7 +216,7 @@ T *YHVector<T>::begin() {
 
 // Hassan
 template<typename T>
-T* YHVector<T>::end() {
+T *YHVector<T>::end() {
 
     End = Begin + Size;
     return End;
