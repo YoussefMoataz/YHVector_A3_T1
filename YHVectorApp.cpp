@@ -66,6 +66,15 @@ int main() {
     cout << v4.capacity() << endl;
     cout << v4 << endl;
 
+    v4.push_back("last one");
+    v4.push_back("last two");
+
+    cout << v4.size() << endl;
+    cout << v4.capacity() << endl;
+    cout << v4 << endl;
+
+    printDashes();
+
     return 0;
 }
 

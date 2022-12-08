@@ -82,46 +82,13 @@ T &YHVector<T>::operator[](int index) {
 template<typename T>
 int YHVector<T>::push_back(T item) {
 
-    if(Size >= Capacity){
+    resize();
 
-        Capacity *= 2;
+    Data[Size] = item;
 
-        T* temp = new T[Size];
+    Size++;
 
-        for (int i = 0; i < Size; ++i) {
-
-            temp[i] = Data[i];
-
-        }
-
-        delete [] Data;
-
-        Data = new T[Capacity];
-
-        for (int i = 0; i < Size; ++i) {
-
-            Data[i] = temp[i];
-
-        }
-
-        delete [] temp;
-
-        Data[Size] = item;
-
-        Size++;
-
-        return 1;
-    }else{
-
-        Data[Size] = item;
-
-        Size++;
-
-        return 1;
-
-    }
-
-    return 0;
+    return 1;
 
 }
 
@@ -207,6 +174,35 @@ int YHVector<T>::capacity() {
 // Youssef
 template<typename T>
 int YHVector<T>::resize() {
+
+    if(Size >= Capacity){
+
+        Capacity *= 2;
+
+        T* temp = new T[Size];
+
+        for (int i = 0; i < Size; ++i) {
+
+            temp[i] = Data[i];
+
+        }
+
+        delete [] Data;
+
+        Data = new T[Capacity];
+
+        for (int i = 0; i < Size; ++i) {
+
+            Data[i] = temp[i];
+
+        }
+
+        delete [] temp;
+
+        return 1;
+    }
+
+    return 0;
 
 }
 
