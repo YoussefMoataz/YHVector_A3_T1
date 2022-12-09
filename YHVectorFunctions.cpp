@@ -8,6 +8,7 @@
 template<typename T>
 YHVector<T>::YHVector() {
 
+    // create data array with capacity 1
     Data = new T[1];
 
 }
@@ -16,11 +17,13 @@ YHVector<T>::YHVector() {
 template<typename T>
 YHVector<T>::YHVector(int n) {
 
+    // set the given capacity
     Capacity = n;
-    Size = 0;
 
+    // create data array with given capacity
     Data = new T[n];
 
+    // initialize the iterators
     begin();
     end();
 
@@ -153,7 +156,7 @@ T YHVector<T>::pop_back() {
         // create a temp array with the new size
         T *temp = new T[Size - 1];
 
-        // move the data to temp, without the last item
+        // copy the data to temp, without the last item
         for (int i = 0; i < Size - 1; ++i) {
 
             temp[i] = Data[i];
@@ -388,7 +391,10 @@ void YHVector<T>::insert(iterator iter, T item) {
 template<typename T>
 T *YHVector<T>::begin() {
 
+    // assign the "begin" iterator to the beginning of the data array
     Begin = Data;
+
+    // return the iterator
     return Begin;
 
 }
@@ -397,7 +403,10 @@ T *YHVector<T>::begin() {
 template<typename T>
 T *YHVector<T>::end() {
 
+    // assign the "end" iterator to the end of the data array
     End = Begin + Size;
+
+    // return the iterator
     return End;
 
 }
@@ -443,6 +452,7 @@ bool YHVector<T>::operator<(const YHVector<T> &other) {
 template<typename T>
 int YHVector<T>::size() {
 
+    // return the size
     return Size;
 
 }
@@ -451,6 +461,7 @@ int YHVector<T>::size() {
 template<typename T>
 int YHVector<T>::capacity() {
 
+    // return the capacity
     return Capacity;
 
 }
@@ -459,28 +470,36 @@ int YHVector<T>::capacity() {
 template<typename T>
 int YHVector<T>::resize() {
 
+    // since size can NOT be greater than or equal capacity
     if (Size >= Capacity) {
 
+        // double the capacity
         Capacity *= 2;
 
+        // create a temp array
         T *temp = new T[Size];
 
+        // copy the data to temp
         for (int i = 0; i < Size; ++i) {
 
             temp[i] = Data[i];
 
         }
 
+        // delete the dynamically allocated data
         delete[] Data;
 
+        // create a data array
         Data = new T[Capacity];
 
+        // copy the temp to data
         for (int i = 0; i < Size; ++i) {
 
             Data[i] = temp[i];
 
         }
 
+        // delete the dynamically allocated temp
         delete[] temp;
 
         return 1;
@@ -494,6 +513,7 @@ int YHVector<T>::resize() {
 template<typename T>
 bool YHVector<T>::empty() {
 
+    // check if size equals zero or not
     return Size == 0;
 
 }
@@ -502,14 +522,17 @@ bool YHVector<T>::empty() {
 template<typename T2>
 ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
+    // print only if there are elements in the array
     if (yhVector.size() > 0) {
 
+        // loop till before the last element to add commas after each element
         for (auto i = yhVector.begin(); i < yhVector.end() - 1; ++i) {
 
             out << *i << ", ";
 
         }
 
+        // print the last element without comma
         out << *(yhVector.end() - 1);
 
     }
@@ -520,6 +543,7 @@ ostream &operator<<(ostream &out, YHVector<T2> &yhVector) {
 
 void printDashes() {
 
+    // print 20 dashes
     cout << string(20, '-') << endl;
 
 }
