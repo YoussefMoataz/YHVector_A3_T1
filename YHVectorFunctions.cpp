@@ -32,15 +32,22 @@ YHVector<T>::YHVector(int n) {
 // Hassan
 template<typename T>
 YHVector<T>::YHVector(T *Array, int n) {
-
+    
+    // set the given capacity
     Capacity = n;
+    
+    // set the given size
     Size = n;
+    
+    // create data array with given capacity
     Data = new T[n];
-
+    
+    //add array content to the dynamic allocation
     for (int i = 0; i < n; i++) {
         Data[i] = Array[i];
     }
 
+    // initialize the iterators
     begin();
     end();
 
@@ -50,14 +57,21 @@ YHVector<T>::YHVector(T *Array, int n) {
 template<typename T>
 YHVector<T>::YHVector(const YHVector<T> &other) {
 
+    // set the given capacity
     Capacity = other.Capacity;
+
+    // set the given size
     Size = other.Size;
+
+    // create data array with given capacity
     Data = new T[Size];
 
+    //add array content to the dynamic allocation
     for (int i = 0; i < Size; i++) {
         Data[i] = other.Data[i];
     }
 
+    // initialize the iterators
     begin();
     end();
 
@@ -67,6 +81,7 @@ YHVector<T>::YHVector(const YHVector<T> &other) {
 template<typename T>
 YHVector<T>::~YHVector() {
 
+    // delete all data in the dynamic allocation
     if (Size != 0) {
         delete[] Data;
     }
@@ -79,14 +94,17 @@ YHVector<T>::~YHVector() {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
-
+    //set all parameters of first equal to other parameters
     this->Capacity = other.cpacity;
     this->Size = other.Size;
     this->Data = new T[this->size];
+    
+    //copy data of other to first data
     for (int i = 0; i < this->Size; i++) {
         this->Data[i] = other.Data[i];
     }
 
+    // initialize the iterators
     begin();
     end();
 
@@ -95,7 +113,8 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
-
+    
+    //set all parameters of first equal to other parameters
     this->Capacity = other.cpacity;
     this->Size = other.Size;
     this->Data = new T[this->size];
@@ -103,9 +122,11 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
         this->Data[i] = other.Data[i];
     }
 
+    // initialize the iterators
     begin();
     end();
 
+    //delete and nulling the other 
     other->Capacity = 0;
     other->Size = 0;
     delete[] other->Data;
@@ -117,7 +138,6 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
 // Hassan
 template<typename T>
 T &YHVector<T>::operator[](int index) {
-
     if (index < Size && index >= 0) {
 
         return *(Data + index);
@@ -414,8 +434,10 @@ T *YHVector<T>::end() {
 // Hassan
 template<typename T>
 bool YHVector<T>::operator==(const YHVector<T> &other) {
+    // check if the two are equal in size and capacity
     if (this->Size == other.Size) {
         if (this->Capacity == other.Capacity) {
+            // check the equality of items one by one
             for (int i = 0; i < other.Size; i++) {
                 if (this->Data[i] != other.Data[i]) {
                     return false;
@@ -432,14 +454,18 @@ bool YHVector<T>::operator==(const YHVector<T> &other) {
 template<typename T>
 bool YHVector<T>::operator<(const YHVector<T> &other) {
     int SmallestSize;
+
+    //take smallest size
     if (this->Size < 1 || other.Size < 1) {
         return false;
     }
-
+    
+    //take smallest size
     if (this->Size < other.Size) {
         SmallestSize = this->Size;
     } else { SmallestSize = other.Size; }
 
+    // check alll data and compare them
     for (int i = 0; i < SmallestSize; i++) {
         if (this->Data[i] < other.Data[i]) {
             return true;
