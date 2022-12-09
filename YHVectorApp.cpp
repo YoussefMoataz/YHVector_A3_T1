@@ -211,11 +211,11 @@ int main() {
     if (v16 == v17) {
         cout << "v16=v17" << endl;
     } else {
-        cout << "v16!=v17" << endl;
+        cout << "v16!=v17" << endl; // this one
     }
 
     if (v16 < v17) {
-        cout << "a16<17" << endl;
+        cout << "a16<17" << endl; // this one
     } else {
         cout << "a16!<a17" << endl;
     }
