@@ -32,16 +32,16 @@ YHVector<T>::YHVector(int n) {
 // Hassan
 template<typename T>
 YHVector<T>::YHVector(T *Array, int n) {
-    
+
     // set the given capacity
     Capacity = n;
-    
+
     // set the given size
     Size = n;
-    
+
     // create data array with given capacity
     Data = new T[n];
-    
+
     //add array content to the dynamic allocation
     for (int i = 0; i < n; i++) {
         Data[i] = Array[i];
@@ -98,7 +98,7 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
     this->Capacity = other.cpacity;
     this->Size = other.Size;
     this->Data = new T[this->size];
-    
+
     //copy data of other to first data
     for (int i = 0; i < this->Size; i++) {
         this->Data[i] = other.Data[i];
@@ -113,7 +113,7 @@ YHVector<T> &YHVector<T>::operator=(const YHVector<T> &other) {
 // Hassan
 template<typename T>
 YHVector<T> &YHVector<T>::operator=(const YHVector<T> &&other) {
-    
+
     //set all parameters of first equal to other parameters
     this->Capacity = other.cpacity;
     this->Size = other.Size;
@@ -459,7 +459,7 @@ bool YHVector<T>::operator<(const YHVector<T> &other) {
     if (this->Size < 1 || other.Size < 1) {
         return false;
     }
-    
+
     //take smallest size
     if (this->Size < other.Size) {
         SmallestSize = this->Size;
