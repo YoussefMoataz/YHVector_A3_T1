@@ -133,8 +133,10 @@ int YHVector<T>::push_back(T item) {
 
     resize();
 
+    // add the new item to the last position
     Data[Size] = item;
 
+    // increment the size
     Size++;
 
     return 1;
@@ -145,40 +147,54 @@ int YHVector<T>::push_back(T item) {
 template<typename T>
 T YHVector<T>::pop_back() {
 
+    // if there is more than one element
     if (Size > 1) {
 
+        // create a temp array with the new size
         T *temp = new T[Size - 1];
 
+        // move the data to temp, without the last item
         for (int i = 0; i < Size - 1; ++i) {
 
             temp[i] = Data[i];
 
         }
 
+        // delete the dynamically allocated data
         delete[] Data;
 
+        // create new data with the same capacity
         Data = new T[Capacity];
 
+        // restore the data from temp
         for (int i = 0; i < Size - 1; ++i) {
 
             Data[i] = temp[i];
 
         }
 
+        // delete the dynamically allocated temp
         delete[] temp;
 
+        // decrease the size by one
         Size--;
 
+        // return the last element
         return *(end() - 1);
+    } else {
+
+        // get the only item
+        T lastItem = Data[0];
+
+        // delete the dynamically allocated data
+        delete[] Data;
+
+        // reset the size
+        Size = 0;
+
+        // return the last element
+        return lastItem;
     }
-
-    T lastItem = Data[0];
-
-    delete[] Data;
-
-    Size = 0;
-
-    return lastItem;
 
 }
 
@@ -186,28 +202,37 @@ T YHVector<T>::pop_back() {
 template<typename T>
 void YHVector<T>::erase(iterator iter) {
 
+    // check if the iterator is in the array
     if (iter >= begin() && iter < end()) {
 
         int sz = Size;
 
+        // create a temp array
         T *temp = new T[Size];
 
+        // counter for the temp values
         int j = 0;
 
         for (int i = 0; i < Size; ++i) {
 
+            // add every element to the temp but Not the required position (iterator)
             if (&Data[i] == iter) {
+                // decrease the size by one
                 sz--;
                 continue;
             } else {
+                // copy the data to temp
                 temp[j] = Data[i];
+                // increase the counter for temp index
                 j++;
             }
 
         }
 
+        // delete the dynamically allocated data
         delete[] Data;
 
+        // create a data array with the new size
         Data = new T[Size - 1];
         for (int i = 0; i < Size - 1; ++i) {
 
@@ -215,8 +240,10 @@ void YHVector<T>::erase(iterator iter) {
 
         }
 
+        // set the new size
         Size = sz;
 
+        // delete the dynamically allocated temp
         delete[] temp;
 
     }
@@ -227,28 +254,37 @@ void YHVector<T>::erase(iterator iter) {
 template<typename T>
 void YHVector<T>::erase(iterator iter1, iterator iter2) {
 
+    // check if the iterators are in the array
     if (iter1 >= begin() && iter2 < end()) {
 
         int sz = Size;
 
+        // create a temp array
         T *temp = new T[Size];
 
+        // counter for the temp values
         int j = 0;
 
         for (int i = 0; i < Size; ++i) {
 
+            // add every element to the temp but Not the required range (iterators)
             if (&Data[i] >= iter1 && &Data[i] <= iter2) {
+                // decrease the size by one
                 sz--;
                 continue;
             } else {
+                // copy the data to temp
                 temp[j] = Data[i];
+                // increase the counter for temp index
                 j++;
             }
 
         }
 
+        // delete the dynamically allocated data
         delete[] Data;
 
+        // create a data array with the new size
         Data = new T[Size - 1];
         for (int i = 0; i < Size - 1; ++i) {
 
@@ -256,8 +292,10 @@ void YHVector<T>::erase(iterator iter1, iterator iter2) {
 
         }
 
+        // set the new size
         Size = sz;
 
+        // delete the dynamically allocated temp
         delete[] temp;
 
     }
@@ -268,7 +306,10 @@ void YHVector<T>::erase(iterator iter1, iterator iter2) {
 template<typename T>
 void YHVector<T>::clear() {
 
+    // delete the dynamically allocated data
     delete[] Data;
+
+    // reset the size
     Size = 0;
 
 }
@@ -277,10 +318,13 @@ void YHVector<T>::clear() {
 template<typename T>
 void YHVector<T>::insert(iterator iter, T item) {
 
+    // check if the iterator is in the array
     if (iter >= begin() && iter <= end()) {
 
+        // create a temp array with the new size
         T *temp = new T[Size + 1];
 
+        // get the index of the iterator from the array
         int i = 0;
         for (; i < Size; ++i) {
 
@@ -290,6 +334,7 @@ void YHVector<T>::insert(iterator iter, T item) {
 
         }
 
+        // copy the data from the beginning till the index of the iterator
         int counter = 0;
         while (counter < i) {
 
@@ -299,8 +344,8 @@ void YHVector<T>::insert(iterator iter, T item) {
 
         }
 
+        // copy from the end till after the required index
         counter = Size;
-
         while (counter > i) {
 
             temp[counter] = Data[counter - 1];
@@ -309,18 +354,23 @@ void YHVector<T>::insert(iterator iter, T item) {
 
         }
 
+        // update the required index to be the new item
         temp[i] = item;
 
+        // delete the dynamically allocated data
         delete[] Data;
 
+        // increment the size by one
         Size++;
 
+        // update the capacity if needed
         if (Size >= Capacity) {
 
             Capacity *= 2;
 
         }
 
+        // create a data array
         Data = new T[Size];
         for (int k = 0; k < Size; ++k) {
 
@@ -328,6 +378,7 @@ void YHVector<T>::insert(iterator iter, T item) {
 
         }
 
+        // delete the dynamically allocated temp
         delete[] temp;
     }
 
