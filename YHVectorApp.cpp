@@ -11,8 +11,8 @@ int main() {
 
     try {
 
-        cout<<v1[2]<<endl;
-        cout<<v1[5]<<endl;
+        cout << v1[2] << endl;
+        cout << v1[5] << endl;
 
     } catch (out_of_range &e) {
 
@@ -24,10 +24,10 @@ int main() {
 //        cout<<vv3[i]<<endl;
 //    }
 
-    cout << *(v1.begin())<< endl;
-    cout << *(v1.end() - 1)<< endl;
-    cout << (v1.begin())<< endl;
-    cout << (v1.end() - 1)<< endl;
+    cout << *(v1.begin()) << endl;
+    cout << *(v1.end() - 1) << endl;
+    cout << (v1.begin()) << endl;
+    cout << (v1.end() - 1) << endl;
 
     printDashes();
 
@@ -115,10 +115,10 @@ int main() {
 
     *v6.begin() = *(v6.begin() + 3);
 
-    cout << *(v6.begin())<< endl;
-    cout << *(v6.end() - 1)<< endl;
-    cout << (v6.begin())<< endl;
-    cout << (v6.end() - 1)<< endl;
+    cout << *(v6.begin()) << endl;
+    cout << *(v6.end() - 1) << endl;
+    cout << (v6.begin()) << endl;
+    cout << (v6.end() - 1) << endl;
 
     printDashes();
 
@@ -126,9 +126,9 @@ int main() {
     YHVector<int> v7(a7, 5);
     YHVector<int> v8(v7);
 
-    cout<<v8<<endl;
-    cout<<v8.size()<<endl;
-    cout<<v8.capacity()<<endl;
+    cout << v8 << endl;
+    cout << v8.size() << endl;
+    cout << v8.capacity() << endl;
 
     printDashes();
 
@@ -136,14 +136,14 @@ int main() {
     YHVector<int> v9(a9, 5);
     YHVector<int> v10 = v9;
 
-    cout<<v10<<endl;
+    cout << v10 << endl;
 
     v10.pop_back();
     v10.pop_back();
 
-    cout<<v10<<endl;
-    cout<<v10.size()<<endl;
-    cout<<v10.capacity()<<endl;
+    cout << v10 << endl;
+    cout << v10.size() << endl;
+    cout << v10.capacity() << endl;
 
     printDashes();
 
@@ -209,18 +209,22 @@ int main() {
     printDashes();
 
     //test for == operator and < operator
-    int a16[5]={1,1,3,4,5};
-    YHVector <int> v16(a16,5);
-    int a17[5]={1,2,3,4,5};
-    YHVector <int> v17(a17,5);
-    if(v16==v17){
-        cout<<"v16=v17"<<endl;
+    int a16[5] = {1, 1, 3, 4, 5};
+    YHVector<int> v16(a16, 5);
+    int a17[5] = {1, 2, 3, 4, 5};
+    YHVector<int> v17(a17, 5);
+
+    if (v16 == v17) {
+        cout << "v16=v17" << endl;
+    } else {
+        cout << "v16!=v17" << endl;
     }
-    else{cout<<"v16!=v17"<<endl;}
-    if(v16<v17){
-        cout<<"a16<17"<<endl;
-    }    
-    else{cout<<"a16!<a17"<<endl;}
+
+    if (v16 < v17) {
+        cout << "a16<17" << endl;
+    } else {
+        cout << "a16!<a17" << endl;
+    }
 
     return 0;
 }
