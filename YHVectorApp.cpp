@@ -220,6 +220,8 @@ int main() {
         cout << "a16!<a17" << endl;
     }
 
+    printDashes();
+
     return 0;
 }
 
